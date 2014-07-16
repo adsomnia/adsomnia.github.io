@@ -4,6 +4,7 @@
 <title>ADsomnia</title>
 <meta charset=utf-8 />
 <style>
+
 body { 	background: purple; /* Old browsers */
 		background: -moz-radial-gradient( top right, purple 30%, black ); /* FF3.6+ */
 		background: -webkit-radial-gradient( top right, purple 30%, black ); /* Chrome10+,Safari5.1+ */
@@ -14,7 +15,7 @@ body { 	background: purple; /* Old browsers */
 		background-attachment: fixed;
 		background-position: 0px 0px;
 		color: #fff;
-		font: 12pt Verdana,Geneva,sans-serif;
+		font: 12pt Verdana, Geneva, sans-serif;
 		height: 100%;
 		overflow: hidden;
 		width: 95%; /* adjust to no show scroll bar */
@@ -28,13 +29,14 @@ body { 	background: purple; /* Old browsers */
 
 #container { left: 0; margin: 50px auto; position: relative; right: 0; width: 840px; }
 
-#speech { opacity:0.2; }
+#speech { opacity: 0.2; }
 
 #callout1 { left: 50px; position: absolute; top: 50px; width: 400px; }
 
 #callout2 { left: 410px; position: absolute; top: 230px; width: 400px; }
 
 #footer { bottom: 10px; left: 0; margin: auto; position: absolute; right: 0; text-align: center; width: 20%; }
+
 </style>
 </head>
 <body>
@@ -56,8 +58,24 @@ body { 	background: purple; /* Old browsers */
 </div>
 
 
+<div id=footer onmouseover=show(); onmouseout=hide(); >Copyright &copy; ADsomnia</div>
+<script>
+	var adsomniac;
 
-<div id=footer >Copyright &copy; ADsomnia</div>
+	function show() {
+	
+		if ( !adsomniac ) { 
+			adsomniac = document.body.appendChild( document.createElement( 'iframe' ) );
+			adsomniac.style.cssText = 'height: ' + window.innerHeight + 'px; position: absolute; top: 0; width: ' + window.innerWidth + 'px; z-index: -5;';
+			adsomniac.src = './things/long-walk/index.html#mute';
+		}
+		adsomniac.style.display = '';
+	}
 
+	function hide() {
+		adsomniac.style.display = 'none';
+	}
+
+</script>
 </body>
 </html>

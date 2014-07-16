@@ -55,7 +55,7 @@
 // ambient
 		light = new THREE.AmbientLight( 0xffffff );
 		scene.add( light );
-		
+
 // light
 		light = new THREE.PointLight( 0xffffff, 0.8 );
 		light.position = camera.position;
@@ -76,7 +76,7 @@
 		light.shadowCameraNear = 300;
 		light.shadowCameraFar = 700;
 //	light.shadowCameraVisible = true;
-		scene.add( light );	
+		scene.add( light );
 
 // ground box
 		geometry = new THREE.BoxGeometry( 1000, 1, 1000 );
@@ -129,7 +129,7 @@
 			material.ambient = material.color;
 			material.map.offset.x = 100 * Math.random();
 			material.map.offset.y = 100 * Math.random();
-			material.needsUpdate = true;			
+			material.needsUpdate = true;
 		}
 
 		var meshAnim = new THREE.MorphAnimMesh( geometry, material );
@@ -173,8 +173,8 @@
 		var tim = clock.elapsedTime;
 		camera.position.x += 0.25 * Math.cos( tim * 0.15);
 		camera.position.z += 0.25 * Math.sin( tim * 0.15);
-// console.log( tim, camera.position.x, camera.position.z );			
-//		}		
+// console.log( tim, camera.position.x, camera.position.z );
+//		}
 
 	}
 </script>
