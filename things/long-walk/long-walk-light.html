@@ -92,7 +92,7 @@
 		texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 		var FLOOR = 0;
 		var loader = new THREE.JSONLoader();
-		loader.load( "walkingCycle.js", function ( geometry ) {
+		loader.load( "walkingCycleSmall.js", function ( geometry ) {
 
 			morphColorsToFaceColors( geometry );
 
@@ -122,6 +122,7 @@
 		meshAnim.time = 600 * Math.random();
 		meshAnim.position.set( x, y, z );
 		meshAnim.rotation.y = Math.PI/2;
+		meshAnim.scale.set( 10, 10, 10 )
 		meshAnim.castShadow = true;
 		meshAnim.receiveShadow = true;
 		scene.add( meshAnim );
