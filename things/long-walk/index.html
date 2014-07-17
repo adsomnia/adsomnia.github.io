@@ -48,9 +48,9 @@
 		scene.fog = new THREE.Fog( 0x59472b, 100, 800 );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
-		camera.position.set( -80, 80, 80 );
+		camera.position.set( -80, 50, 0 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
-		controls.target.set( 0, 15, 0 );
+		controls.target.set( 250, 50, 0 );
 
 // ambient
 		light = new THREE.AmbientLight( 0xffffff );
@@ -88,13 +88,14 @@
 		material.ambient = material.color;
 
 		mesh = new THREE.Mesh( geometry, material );
-		mesh.position.set( 0, 0, 0 );
+		mesh.position.set( 300, 0, 0 );
 		mesh.castShadow = false;
 		mesh.receiveShadow = true;
 		scene.add( mesh );
 
+// The Ad...
 		geometry = new THREE.PlaneGeometry( 100, 50 );
-		adsomnia = THREE.ImageUtils.loadTexture( "logoT.png" );
+		adsomnia = THREE.ImageUtils.loadTexture( "logo.png" );
 		material = new THREE.MeshPhongMaterial( { map: adsomnia, side: THREE.DoubleSide, transparent: true } );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.set(  250, 50, 0 );
