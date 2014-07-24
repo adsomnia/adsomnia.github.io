@@ -17,8 +17,9 @@ body { 	background: purple; /* Old browsers */
 		color: #fff;
 		font: 12pt Verdana, Geneva, sans-serif;
 		height: 100%;
+		margin: 0;
 		overflow: hidden;
-		width: 95%; /* adjust to no show scroll bar */
+//		width: 95%; /* adjust to no show scroll bar */
  }
 
 #whitebubble { right: 280px; position: absolute;; top: 69px; }
@@ -45,7 +46,7 @@ body { 	background: purple; /* Old browsers */
 
 <div id=greenbubble ><a href="" ><img src="./adsomnia_files/green_bubble.png" /></a></div>
 
-<div id=header ><img src="./adsomnia_files/logoT.png" ></div>
+<div id=header ><img src="./adsomnia_files/logoT.png" onmouseover=show(); onmouseout=hide(); ></div>
 
 <div id=container >
 
@@ -55,7 +56,7 @@ body { 	background: purple; /* Old browsers */
 
 	<div id=callout2 >Hi @greenchat, ya, you can easily upload your resume <a href="http://adsomnia.com/resume.php">here</a></div>
 
-<div ><i>A remake of <a href="http://adsomnia.com" target="_blank">http://adsomnia.com</a></i></div>
+	<div ><i>A remake of <a href="http://adsomnia.com" target="_blank">http://adsomnia.com</a></i></div>
 </div>
 
 <div id=footer onmouseover=show(); onmouseout=hide(); >Copyright &copy; ADsomnia</div>
@@ -66,7 +67,7 @@ body { 	background: purple; /* Old browsers */
 	
 		if ( !adsomniac ) { 
 			adsomniac = document.body.appendChild( document.createElement( 'iframe' ) );
-			adsomniac.style.cssText = 'height: ' + window.innerHeight + 'px; position: absolute; top: 0; width: ' + window.innerWidth + 'px; z-index: -5;';
+			adsomniac.style.cssText = 'background-color: #000; border: 0px solid black; left: -2px; height: ' + window.innerHeight + 'px; position: absolute; top: 0; width: ' + window.innerWidth + 'px; z-index: -5;';
 			adsomniac.src = './things/adsomnia-doodle-test.html';
 		}
 		adsomniac.style.display = '';
