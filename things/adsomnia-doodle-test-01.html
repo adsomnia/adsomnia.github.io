@@ -24,7 +24,7 @@
 
 		scene = new THREE.Scene();
 
-		geometry = new THREE.PlaneGeometry( 300, 300 );
+		geometry = new THREE.CubeGeometry( 200, 200, 200 );
 		var texture = new THREE.ImageUtils.loadTexture( './logo-600.png' );
 		material = new THREE.MeshBasicMaterial( { color: 0xff0000, map:texture, opacity: 0.5, side: THREE.DoubleSide, transparent: true } );
 
