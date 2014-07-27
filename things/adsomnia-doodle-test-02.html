@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+</head>
+<body>
+<script>
+	var camera, scene, renderer;
+	var geometry, material, mesh;
+
+	var init = function () {
+
+		document.body.style.cssText = 'margin: 0; overflow: hidden' ;
+
+		renderer = new THREE.CanvasRenderer();
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+
+		camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.z = 250;
+
+		scene = new THREE.Scene();
+
+		geometry = new THREE.PlaneGeometry( 300, 300 );
+		var texture = new THREE.ImageUtils.loadTexture( './logo-600.png' );
+		material = new THREE.MeshBasicMaterial( { color: 0xff0000, map:texture, opacity: 0.5, side: THREE.DoubleSide, transparent: true } );
+
+		mesh = new THREE.Mesh( geometry, material );
+		scene.add( mesh );
+
+	}
+
+	var animate = function () {
+		requestAnimationFrame( animate );
+
+		mesh.rotation.x = Date.now() * 0.0005;
+		mesh.rotation.y = Date.now() * 0.0005;
+
+		renderer.render( scene, camera );
+	}
+
+	init();
+	animate();
+</script>
+</body>
+</html>
