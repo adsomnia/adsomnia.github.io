@@ -7,7 +7,7 @@
 
 <i class="fa fa-external-link"></i> [Live Demo (latest)]( http://github.com/adsomnia/mobile ) 
 
-<i class="fa fa-github"></i> [Source Code on GitHub]( https://github.com/adsomnia/ ) 
+<i class="fa fa-github"></i> [Source Code on GitHub]( https://github.com/adsomnia/adsomnia.github.io/tree/master/mobile ) 
 <br>
 <br>
  
