@@ -2,7 +2,7 @@ Adsomnia Mobile Read Me
 ===
 
 
-1. [Live Demo]( http://adsomnia/mobile/latest )  
+1. [Live Demo]( http://adsomnia.github.io/mobile/latest )  
 2. [Read Me]( http://adsomnia.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
 3. [Source Code]( https://github.com/adsomnia/adsomnia.github.io/tree/master/mobile "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
