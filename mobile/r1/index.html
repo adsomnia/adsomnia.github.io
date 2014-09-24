@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>ADsomnia 2</title>
+<meta charset=utf-8 />
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
+<meta name=author content='Theo Armour' />
+</head>
+<style>
+
+body, bbb { background: purple; /* Old browsers */
+		background: -moz-radial-gradient( top right, purple 50%, black ); /* FF3.6+ */
+		background: -webkit-radial-gradient( top right, purple 50%, black ); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient( top right, purple 50%, black ); /* Opera 11.10+ */
+		background: -ms-linear-gradient( top right, purple 50%, black ); /* IE10+ */
+		background: linear-gradient( top right, purple 50%, black ); /* W3C */
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: 0px 0px;
+		color: #fff;
+		font: 12pt Verdana, Geneva, sans-serif;
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		text-align: right;
+//		width: 95%; /* adjust to no show scroll bar */
+
+ }
+</style>
+<body>
+
+<script>
+
+	document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+	var hgt = window.innerHeight;
+	var info = document.body.appendChild( document.createElement( 'div' ) );
+	info.innerHTML = //'<h1 id=bbb style="color: rgba(0, 0, 0, 0.25); opacity: 0.5;" >' + document.title + '</h1>' +
+		'<img id=logo src="half white 1.png"  />' +
+		'<div id=msg >' +
+			'<a href=sign-in.html ><button id=butt1 >button 1</button></a>' +
+			'<button id=butt2 >button 2</button>' +
+			'<button id=butt3 >button 3</button>' +
+		'</div>';
+
+	butt1.style.cssText = butt2.style.cssText = butt3.style.cssText = 'background-color: #fff; height: ' + ( 0.1 * hgt ) + 'px; padding: 5px; opacity: 0.3; width: 100%; ';
+	var logo = document.querySelector("#logo");
+	logo.style.cssText = 'height: ' + ( 0.8 * hgt ) + 'px; opacity: 0.3; ';
+
+</script>
+</body>
+</html>

@@ -66,11 +66,15 @@ body { 	background: purple; /* Old browsers */
 	function show() {
 	
 		if ( !adsomniac ) { 
+
 			adsomniac = document.body.appendChild( document.createElement( 'iframe' ) );
 			adsomniac.style.cssText = 'background-color: #000; border: 0px solid black; left: -2px; height: ' + window.innerHeight + 'px; position: absolute; top: 0; width: ' + window.innerWidth + 'px; z-index: -5;';
 			adsomniac.src = './things/adsomnia-doodle-test.html';
+
 		}
+
 		adsomniac.style.display = '';
+
 	}
 
 	function hide() {
