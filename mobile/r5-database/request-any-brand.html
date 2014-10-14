@@ -57,7 +57,7 @@
 	}
 
 	.pic {
-		border: 1px solid red;
+		border: 0px solid red;
 		float: left;
 		position: relative;
 	}
@@ -65,6 +65,7 @@
 	.pic-text1 {
 		color: white;
 		font-family: streamline-30px-filled-in;
+		font-size: 24pt;
 		position: absolute;
 		right: 5px;
 		top: 5px;
@@ -175,9 +176,10 @@
 
 			entries = data.feed.entry;
 			count = entries.length / 5;
+
 			for ( var i = 1; i < count; i++ ) {
 
-				console.log( entries[ i * 4 ].content.$t );
+				console.log( entries[ i * 5 ].content.$t );
 
 				var hgt = 0.2 * entries[ i * 5 + 3].content.$t; //( 50 + Math.random() * 200 );
 				var wid = 0.2 * entries[ i * 5 + 4].content.$t; // ( 50 + Math.random() * 200 );
@@ -185,11 +187,13 @@
 				info.className = 'pic';
 				info.style.cssText += 'height: ' + hgt + 'px; width: ' + wid + 'px;';
 				info.innerHTML = 
-					'<img src=' + entries[ i * 5 ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
+					'<a href=' + entries[ i * 5 + 1 ].content.$t + ' >' +
+						'<img src=' + entries[ i * 5 ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
+					'</a>' +
 					'<div class=pic-text1 > &#xe035; </div>' +
 					'<div class=pic-text2 >' +  entries[ i * 5 + 2].content.$t + '</div>';
 
-					}
+			}
 		}
 	}
 
