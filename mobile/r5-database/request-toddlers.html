@@ -29,7 +29,6 @@
 
 	a { 
 		text-decoration: none;
-		color: black;
 	}
 
 	#request {
@@ -57,6 +56,10 @@
 		width: 100%;
 		z-index: 10;
 -webkit-backface-visibility: hidden;
+	}
+
+	#types a {
+		color: black;
 	}
 	
 	#content {
@@ -130,10 +133,14 @@
 	.ad-heart-icon {
 		color: white;
 		font-family: streamline-30px-filled-in;
-		font-size: 48pt;
+		font-size: 24pt;
 		position: absolute;
 		right: 0;
 		top: 0;
+	}
+
+	.ad-heart-icon a {
+		color: white;
 	}
 
 	.ad-text {
@@ -196,15 +203,20 @@
 				info = content.appendChild( document.createElement( 'div' ) );
 				info.className = 'pic';
 				info.style.cssText += 'height: ' + hgt + 'px; width: ' + wid + 'px;';
+				thing = entries[ i * columns + 2].content.$t;
 				info.innerHTML = 
 					'<a href=' + entries[ i * columns + 1 ].content.$t + ' >' +
 						'<img src=' + entries[ i * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
 					'</a>' +
-					'<div class=pic-text1 > &#xe035; </div>' +
-					'<div class=pic-text2 >' +  entries[ i * columns + 2].content.$t + '</div>';
+					'<div class=ad-heart-icon ><a href=JavaScript:youHeart(thing); > &#xe035;</a> </div>' +
+					'<div class=ad-text >' + thing + '</div>';
 
 			}
 		}
+	}
+
+	function youHeart( thing ) {
+		alert( 'You heart ' + thing + '!');
 	}
 
 </script>
