@@ -2,8 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 />
-<title>Request Any Brand</title>
-
+<title>Deals</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <style>
@@ -97,24 +96,12 @@
 		text-shadow: 0 0 0.2em #888;
 	}
 
-
 	.ad-text {
 		bottom: 0;
 		color: purple;
 		font-size: 12pt;
 		margin: 8px;
 		position: absolute;
-	}
-
-/* content === deals */
-
-
-	#deal {
-		color: purple;
-		font-size: 12pt;
-		margin-left: 10%;
-		top:100px;
-		width: 70%;
 	}
 
 	#footer {
@@ -158,13 +145,7 @@
 /*		background-position: 0px 0px; */
 	}
 
-	.mail {
-		float:right;
-		font-family: streamline-30px-filled-in;
-		font-size: 12pt;
-	}
 </style>
-</head>
 <body>
 
 	<div id=request class=purple-gradient >Request any brand </div>
@@ -172,9 +153,9 @@
 	<div id=header-icons >F &#xe0c6; </div>
 
 	<div id=types >
-		<a href=JavaScript:selectType('girls'); >GIRLS</a> | 
-		<a href=JavaScript:selectType('boys'); >BOYS</a> | 
-		<a href=JavaScript:selectType('toddlers'); >TODDLERS</a>
+		<a href=JavaScript:selectType('od6'); >GIRLS</a> | 
+		<a href=JavaScript:selectType('2'); >BOYS</a> | 
+		<a href=JavaScript:selectType('3'); >TODDLERS</a>
 	</div>
 
 	<div id=content ></div>
@@ -186,93 +167,6 @@
 
 <script>
 
-	var columns = 8;
-	var xmlhttp;
-
-	selectType( 'girls' );
-
-	function selectType( type ) {
-
-		loadJSON( 'https://spreadsheets.google.com/feeds/cells/1Hi_To5IJgkWtOYmmCgROT5wZmQlTh7cIkpoYBrgUc9k/1/public/basic?alt=json' );
-		xmlhttp.type = type;
-	}
-
-	function callbackJSON() {
-
-		if ( xmlhttp.readyState == 4 ) {
-
-			var string = xmlhttp.responseText;
-			data = JSON.parse( string );
-
-			entries = data.feed.entry;
-
-			count = entries.length / columns;
-
-			content.innerHTML = '';
-
-			for ( var i = 1; i < count; i++ ) {
-				if ( entries[ i * columns + 3].content.$t === xmlhttp.type ) {
-					var hgt = entries[ i * columns + 6].content.$t;
-					var wid = entries[ i * columns + 7].content.$t;
-					var item = entries[ i * columns + 2].content.$t;
-					content.innerHTML +=
-						'<div class=pic style=height:' + hgt + 'px;width:' + wid + 'px; >' +
-							'<a href=JavaScript:displayDeal(' + i + '); >' +
-								'<img src=' + entries[ i * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
-							'</a>' +
-							'<div class=ad-heart-icon title="' + item + '" ><a id=ad' + i + ' href="JavaScript:youHeart(' + i + ');" > &#xe035;</a> </div>' +
-							'<div class=ad-text >' + item.toUpperCase() + '</div>' +
-						'</div>';
-				}
-			}
-		}
-	}
-
-	function displayDeal( count ) {
-
-		var hgt = 1.5 * entries[ count * columns + 6].content.$t;
-		var wid = 1.5 * entries[ count * columns + 7].content.$t;
-
-		content.innerHTML = 
-			'<div id=deal >' +
-					'<div>ONLINE</div>' + 
-					'<div>Buy 1 get 1 free <div class=mail >&#xe0c6; </div></div>' +
-					'<div>$5 off underwear <div class=mail >&#xe0c6; </div></div>' +
-					'<div>10% off swimwear <div class=mail >&#xe0c6; </div></div>' +
-					'<div> <br></div>' +
-					'<div>IN-STORE</div>' + 
-					'<div>20% off pajamas<div class=mail >&#xe0c6; </div></div>' +
-					'<div>$10 off any purchase over $50<div class=mail >&#xe0c6; </div></div>' +
-					'<br>' +
-					'<div>' + entries[ count * columns + 2].content.$t.toUpperCase() + '</div>' +
-
-				'<a href=' + entries[ count * columns + 1 ].content.$t + '>' +
-					'<img src=' + entries[ count * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
-				'</a>' +
-			'</div>';
-
-	}
-
-	function youHeart( count ) {
-
-		adHeart = document.getElementById( 'ad' + count );
-		if ( adHeart.style.color === ''  ) {
-			adHeart.style.color = 'purple'; 
-			alert( 'You heart ' + entries[ count * columns + 2 ].content.$t + '!');
-		} else {
-			adHeart.style.color = ''; 
-			alert( 'You no longer heart ' + entries[ count * columns + 2 ].content.$t + '...');
-		}
-	}
-
-	function loadJSON( fname ) {
-
-		xmlhttp = new XMLHttpRequest();
-		xmlhttp.open( 'GET', fname, true );
-		xmlhttp.onreadystatechange = callbackJSON;
-		xmlhttp.send( null );
-
-	}
 
 </script>
 </body>
