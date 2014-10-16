@@ -1,6 +1,7 @@
 Adsomnia Mobile Read Me
 ===
 
+[Request any brand + Deals / R6]( http://adsomnia.github.io/mobile/r6/request-any-brand.html )  
 [Request any brand / R5]( http://adsomnia.github.io/mobile/r5-database/request-any-brand.html )  
 [Request any brand / R4]( http://adsomnia.github.io/mobile/r4-owl/request-any-brand.html )  
 [ADnotify / R4]( http://adsomnia.github.io/mobile/r4-owl/adnotify.html )  
