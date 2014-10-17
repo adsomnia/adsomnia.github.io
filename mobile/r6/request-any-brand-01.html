@@ -111,20 +111,10 @@
 		font-size: 12pt;
 		margin-left: 10%;
 		top:100px;
-		width: 80%;
+		width: 70%;
 	}
 
-	#hearts {
-		color: purple;
-		font-size: 12pt;
-		margin-left: 10%;
-		top:100px;
-		width: 80%;
-	}
 
-	.pic-hearts {
-		position: relative;
-	}
 
 	#footer {
 		bottom: 0;
@@ -144,17 +134,6 @@
 		text-shadow: -1px -1px 2px #aaa, 1px 1px 2px #333;
 		width: 100%;
 		z-index: 10;
-
-	}
-
-	#footer-icons a {
-		color: white;
-	}
-
-	#back-button, #back-button a{
-		color: purple;
-		font-family: streamline-30px-filled-in;
-		font-size: 36pt;
 	}
 
 	#footer-bar {
@@ -202,23 +181,19 @@
 
 	<div id=footer >
 		<div id=footer-bar class=purple-gradient ></div>
-		<div id=footer-icons> &#xe32d; 
-			&nbsp;<a href=JavaScript:displayHearts(); >&#xe035;</a>&nbsp; 
-			&#xe116;
-		</div>
+		<div id=footer-icons> &#xe32d; &nbsp;&#xe035;&nbsp; &#xe116;</div>
 	<div>
 
 <script>
 
 	var columns = 8;
 	var xmlhttp;
-	var type = 'girls';
-	var entries;
 
-	selectType( type );
+	selectType( 'girls' );
 
 	function selectType( type ) {
-			loadJSON( 'https://spreadsheets.google.com/feeds/cells/1Hi_To5IJgkWtOYmmCgROT5wZmQlTh7cIkpoYBrgUc9k/1/public/basic?alt=json' );
+
+		loadJSON( 'https://spreadsheets.google.com/feeds/cells/1Hi_To5IJgkWtOYmmCgROT5wZmQlTh7cIkpoYBrgUc9k/1/public/basic?alt=json' );
 		xmlhttp.type = type;
 	}
 
@@ -227,11 +202,11 @@
 		if ( xmlhttp.readyState == 4 ) {
 
 			var string = xmlhttp.responseText;
-			var data = JSON.parse( string );
+			data = JSON.parse( string );
 
 			entries = data.feed.entry;
 
-			var count = entries.length / columns;
+			count = entries.length / columns;
 
 			content.innerHTML = '';
 
@@ -245,9 +220,7 @@
 							'<a href=JavaScript:displayDeal(' + i + '); >' +
 								'<img src=' + entries[ i * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
 							'</a>' +
-							'<div class=ad-heart-icon title="' + item + '" >' +
-								'<a id=ad' + i + ' href="JavaScript:youHeart(' + i + ');" name=' + i + '> &#xe035;</a> ' +
-							'</div>' +
+							'<div class=ad-heart-icon title="' + item + '" ><a id=ad' + i + ' href="JavaScript:youHeart(' + i + ');" > &#xe035;</a> </div>' +
 							'<div class=ad-text >' + item.toUpperCase() + '</div>' +
 						'</div>';
 				}
@@ -276,65 +249,16 @@
 				'<a href=' + entries[ count * columns + 1 ].content.$t + '>' +
 					'<img src=' + entries[ count * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
 				'</a>' +
-				'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' +
 			'</div>';
-
-	}
-
-	function displayHearts() {
-			var txt = '';
-
-			for (var i = 0, len = content.children.length; i < len; i++) {
-
-				var item = content.children[i].children[1].children[0];
-
-				if ( item.style.color === 'purple' ) {
-
-					var id = parseFloat( item.name, 10 );
-					var src = entries[ id * columns ].content.$t;
-					var text = entries[ id * columns + 2].content.$t.toUpperCase();
-					var hgt = entries[ id * columns + 6].content.$t;
-					var wid = entries[ id * columns + 7].content.$t;
-
-					txt += 
-						'<div class=pic-hearts style=height:' + hgt + 'px;width:' + wid + 'px; >' +
-							'<a href=JavaScript:displayDeal(' + id + '); >' +
-								'<img src=' + src + ' height= ' + hgt + ' width=' + wid + ' />' +
-							'</a>' +
-							'<div class=ad-text >' + text + '</div>' +
-						'</div>';
-
-				}
-			}
-
-			if ( txt ) {
-
-				content.innerHTML = 
-					'<div id=hearts >' +
-						txt +
-					'</div>';
-						'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' ;
-
-
-			} else {
-
-				content.innerHTML = 
-					'<div id=hearts >' +
-						'<p>No items are hearted.</p>' +
-						'<p>Please go back and heart some items...</p>' +
-						'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a></div>' +
-					'</div>';
-
-			}
 
 	}
 
 	function youHeart( count ) {
 
-		var adHeart = document.getElementById( 'ad' + count );
+		adHeart = document.getElementById( 'ad' + count );
 		if ( adHeart.style.color === ''  ) {
 			adHeart.style.color = 'purple'; 
-//			alert( 'You heart ' + entries[ count * columns + 2 ].content.$t + '!');
+			alert( 'You heart ' + entries[ count * columns + 2 ].content.$t + '!');
 		} else {
 			adHeart.style.color = ''; 
 			alert( 'You no longer heart ' + entries[ count * columns + 2 ].content.$t + '...');
