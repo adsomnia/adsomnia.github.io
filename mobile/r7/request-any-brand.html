@@ -189,7 +189,7 @@
 </head>
 <body>
 
-	<div id=request class=purple-gradient >Request any brand </div>
+	<div id=request class=purple-gradient >Request any brand</div>
 
 	<div id=header-icons >F &#xe0c6; </div>
 
@@ -234,6 +234,7 @@
 
 			var count = entries.length / columns;
 
+			request.innerHTML = 'Request any brand';
 			content.innerHTML = '';
 
 			for ( var i = 1; i < count; i++ ) {
@@ -261,6 +262,7 @@
 		var hgt = 1.5 * entries[ count * columns + 6].content.$t;
 		var wid = 1.5 * entries[ count * columns + 7].content.$t;
 
+		request.innerHTML = 'Deals';
 		content.innerHTML = 
 			'<div id=deal >' +
 					'<div>ONLINE</div>' + 
@@ -283,49 +285,50 @@
 	}
 
 	function displayHearts() {
-			var txt = '';
+		request.innerHTML = 'Hearts';
+		var txt = '';
 
-			for (var i = 0, len = content.children.length; i < len; i++) {
+		for (var i = 0, len = content.children.length; i < len; i++) {
 
-				var item = content.children[i].children[1].children[0];
+			var item = content.children[i].children[1].children[0];
 
-				if ( item.style.color === 'purple' ) {
+			if ( item.style.color === 'purple' ) {
 
-					var id = parseFloat( item.name, 10 );
-					var src = entries[ id * columns ].content.$t;
-					var text = entries[ id * columns + 2].content.$t.toUpperCase();
-					var hgt = entries[ id * columns + 6].content.$t;
-					var wid = entries[ id * columns + 7].content.$t;
+				var id = parseFloat( item.name, 10 );
+				var src = entries[ id * columns ].content.$t;
+				var text = entries[ id * columns + 2].content.$t.toUpperCase();
+				var hgt = entries[ id * columns + 6].content.$t;
+				var wid = entries[ id * columns + 7].content.$t;
 
-					txt += 
-						'<div class=pic-hearts style=height:' + hgt + 'px;width:' + wid + 'px; >' +
-							'<a href=JavaScript:displayDeal(' + id + '); >' +
-								'<img src=' + src + ' height= ' + hgt + ' width=' + wid + ' />' +
-							'</a>' +
-							'<div class=ad-text >' + text + '</div>' +
-						'</div>';
-
-				}
-			}
-
-			if ( txt ) {
-
-				content.innerHTML = 
-					'<div id=hearts >' +
-						txt +
-						'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' +
-					'</div>';
-
-			} else {
-
-				content.innerHTML = 
-					'<div id=hearts >' +
-						'<p>No items are hearted.</p>' +
-						'<p>Please go back and heart some items...</p>' +
-						'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a></div>' +
+				txt += 
+					'<div class=pic-hearts style=height:' + hgt + 'px;width:' + wid + 'px; >' +
+						'<a href=JavaScript:displayDeal(' + id + '); >' +
+							'<img src=' + src + ' height= ' + hgt + ' width=' + wid + ' />' +
+						'</a>' +
+						'<div class=ad-text >' + text + '</div>' +
 					'</div>';
 
 			}
+		}
+
+		if ( txt ) {
+
+			content.innerHTML = 
+				'<div id=hearts >' +
+					txt +
+					'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' +
+				'</div>';
+
+		} else {
+
+			content.innerHTML = 
+				'<div id=hearts >' +
+					'<p>No items are hearted.</p>' +
+					'<p>Please go back and heart some items...</p>' +
+					'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a></div>' +
+				'</div>';
+
+		}
 
 	}
 
