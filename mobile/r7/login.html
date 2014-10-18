@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Adsomnia Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="jQuery Responsive Carousel - Owl Carusel">
 
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.carousel.css" rel="stylesheet">
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -37,23 +38,29 @@
 		z-index: -10;
 	}
 
-	.sign-up {
+	#name, #password {
+		background-color: #ddd;
+		border-bottom: 3px solid lightgray;
+
+
+		line-height: 50px;
+		opacity: 0.85;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	#inpName, #inpPassword {
+		color: purple;
+		font-size: 14pt;
+	}
+
+	#submit {
 		background-color: #ddd;
 		border-bottom: 3px solid lightgray;
 		color: purple;
 		line-height: 50px;
 		margin-top: 50px;
 		opacity: 0.85;
-		text-align: center;
-	}
-
-	.sign-in {
-		background-color: #ddd;
-		border-bottom: 3px solid lightgray;
-		color: purple;
-		line-height: 50px;
-		opacity: 0.85;
-		margin-top: 10px;
 		text-align: center;
 	}
 
@@ -105,19 +112,19 @@
 
 	</div>
 
-	<div class=sign-up ><a href=JavaScript:signUp(); >SIGN UP</a></div>
+	<div id=name ><input type="text" id=inpName placeholder="User name" size=20/></div>
 
-	<div class=sign-in ><a href=JavaScript:signIn(); >SIGN IN</a></div>
+	<div id=password ><input type="text" id=inpPassword placeholder="Password" size=20 onchange=checkPassword(); /></div>
+
+	<div id=submit><a href=JavaScript:checkPassword(); >SIGN IN</a></div>
 
 <script>
-
-	function signUp() {
-		alert('Sorry. Sign up is still by invitation only. Please email invite@adsomnia.com to request your invitation');
-	}
-
-	function signIn() {
-		window.location.href = './login.html';
-
+	function checkPassword() {
+		if ( inpPassword.value.substr(0,4).toUpperCase() === 'PASS' ) {
+			window.location.href = './request-any-brand.html';
+		} else {
+			alert('Sorry, that user name and password combination was not found. Please try again...');
+		}
 	}
 </script>
 </body>
