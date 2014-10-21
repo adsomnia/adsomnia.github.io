@@ -18,6 +18,12 @@ Adsomnia Mobile Read Me
 
 ## Change Log
 
+2014-10-20 ~ Theo
+
+* update password
+* heart items float left
+* video page added / video tab on database ss
+
 2014-10-18 ~ Theo
 
 * Add simple password entry
