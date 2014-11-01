@@ -2,7 +2,7 @@
 <html lang=en >
 <head>
 <meta charset=utf-8 />
-<title>Request Any Brand</title>
+<title>Select a Category</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -75,8 +75,9 @@
 	}
 
 	#content {
-		margin-top: 100px;
+		margin: 90px 1%;
 		width: 100%;
+		max-width: 480px;
 	}
 
 	#footer {
@@ -113,6 +114,8 @@
 		color: white;
 	}
 
+
+
 	.purple-gradient {
 		background: purple; /* Old browsers */
 		background: -moz-radial-gradient( top right, purple 50%, black ); /* FF3.6+ */
@@ -125,24 +128,34 @@
 /*		background-position: 0px 0px; */
 	}
 
-	.mail {
-		float:right;
+	.category-box {
+
+		color: purple;
+		float: left;
+		margin: 3% 3%;
+	}
+
+	.category-icon {
 		font-family: streamline-30px-filled-in;
-		font-size: 12pt;
+		font-size: 60pt;
+	}
+
+	.category-text {
+
 	}
 
 </style>
 </head>
 <body>
 
-	<div id=request class=purple-gradient >Request any brand</div>
+	<div id=request class=purple-gradient >Select any Category</div>
 
 	<div id=header-icons >F &#xe0c6; </div>
 
 	<div id=types >
-		<a href=JavaScript:selectType('girls'); >GIRLS</a> | 
-		<a href=JavaScript:selectType('boys'); >BOYS</a> | 
-		<a href=JavaScript:selectType('toddlers'); >TODDLERS</a>
+		<a href=JavaScript:selectType('price'); >PRICE</a> | 
+		<a href=JavaScript:selectType('location'); >LOCATION</a> | 
+		<a href=JavaScript:selectType('rating'); >RATING</a>
 	</div>
 
 	<div id=content ></div>
@@ -157,7 +170,36 @@
 	<div>
 
 <script>
+// https://docs.google.com/a/adsomnia.com/spreadsheets/d/1D8ioOe41dmq2HVN5Gg-8rKzWDxsHiLXYo9uUeUolAZ4/edit#gid=0
 
+	var categories = [
+		['Word&Sound','&#xe3fb;'],
+		['Entertain','&#xe187;'],
+		['Tech','&#xe13c;'],
+		['Dwell&Build','&#xe362;'],
+		['Looks&Grub','&#xe142;'],
+		['Kids Stuff','&#xe4ed;'],
+		['Rags&Bling','&#xe478;'],
+		['Fun&Play','&#xe34e;'],
+		['Cars&Gear','&#xe549;']
+	];
+
+	getCategories();
+
+	function getCategories() {
+
+		content.innerHTML = '';
+
+		for (var i = 0, len = categories.length; i < len; i++) {
+			content.innerHTML += '<a href=./request-any-brand.html ><div class=category-box >' + 
+				'<div class=category-icon  >' + categories[i][1] + '</div>' +
+				'<div class=category-text >' + categories[i][0] + '</div>' +
+			'</div></a>';
+
+		}
+	}
+
+/*
 	var xmlhttp;
 	var entries;
 
@@ -197,6 +239,7 @@
 		xmlhttp.send( null );
 
 	}
+*/
 
 </script>
 </body>

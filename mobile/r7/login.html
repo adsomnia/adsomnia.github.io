@@ -11,8 +11,11 @@
 <style>
 	body {
 		font: 14pt "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-		margin: 0; 
+		left: 0;
+		margin: 0 auto;
+		max-width: 480px; 
 		overflow: hidden;
+		right: 0;
 	}
 
 	a { 
@@ -34,6 +37,7 @@
 		position: absolute;
 		top: 250px;
 		width:100%;
+		max-width: 480px;
 		z-index: -10;
 	}
 
@@ -120,7 +124,7 @@
 <script>
 	function checkPassword() {
 		if ( inpPassword.value.substr(0,4).toUpperCase() === 'NUTR' ) {
-			window.location.href = './request-any-brand.html';
+			window.location.href = './categories.html';
 		} else {
 			alert('Sorry, that user name and password combination was not found. Please try again...');
 		}
