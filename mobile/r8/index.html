@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Owl Carousel - Images Demo</title>
+<title>Adsomnia Home R7.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="jQuery Responsive Carousel - Owl Carousel">
 
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.carousel.css" rel="stylesheet">
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -12,21 +11,33 @@
 <style>
 	body {
 		font: 14pt "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-		margin: 0; 
+		left: 0;
+		margin: 0 auto; 
+		max-width: 480px;
+		right: 0;
 		overflow: hidden;
 	}
+
+	a { 
+		color: purple;
+		text-decoration: none;
+	}
+
 	#owl-demo .item{
 		margin: 0px;
 	}
+
 	#owl-demo .item img{
 		display: block;
 		width: 100%;
 		height: 200px;
 	}
+
 	#logo {
 		position: absolute;
 		top: 250px;
 		width:100%;
+		max-width: 480px;
 		z-index: -10;
 	}
 
@@ -53,6 +64,7 @@
 	.owl-theme .owl-controls .owl-page span {
 		display: none;
 	}
+
 </style>
 </head>
 <body>
@@ -93,11 +105,24 @@
 	<div class="item"><img src="../../ui-images/image-18.jpg" alt="Owl Image"></div>
 	<div class="item"><img src="../../ui-images/image-19.jpg" alt="Owl Image"></div>
 
+
+
 	</div>
 
-	<div class=sign-up >SIGN UP</div>
+	<div class=sign-up ><a href=JavaScript:signUp(); >SIGN UP</a></div>
 
-	<div class=sign-in >SIGN IN</div>
+	<div class=sign-in ><a href=JavaScript:signIn(); >SIGN IN</a></div>
 
+<script>
+
+	function signUp() {
+		alert('Sorry. Sign up is still by invitation only. Please email invite@adsomnia.com to request your invitation');
+	}
+
+	function signIn() {
+		window.location.href = './login.html';
+
+	}
+</script>
 </body>
 </html>

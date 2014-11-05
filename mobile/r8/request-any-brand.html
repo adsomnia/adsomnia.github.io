@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang=en >
+<head>
+<meta charset=utf-8 />
+<title>Request Any Brand</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<style>
+
+	@font-face {
+		font-family: "streamline-30px-filled-in";
+		src:url("../../images/Streamline-Icon-Fonts/streamline-30px-filled-in/fonts/streamline-30px-filled-in.eot");
+		src:url("../../images/Streamline-Icon-Fonts/streamline-30px-filled-in/fonts/streamline-30px-filled-in.eot?#iefix") format("embedded-opentype"),
+			url("../../images/Streamline-Icon-Fonts/streamline-30px-filled-in/fonts/streamline-30px-filled-in.woff") format("woff"),
+			url("../../images/Streamline-Icon-Fonts/streamline-30px-filled-in/fonts/streamline-30px-filled-in.ttf") format("truetype"),
+			url("../../images/Streamline-Icon-Fonts/streamline-30px-filled-in/fonts/streamline-30px-filled-in.svg#streamline-30px-filled-in") format("svg");
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	body {
+		font: 300 11pt "Open Sans", sans-serif;
+		left: 0;
+		margin: 0 auto;
+		max-width: 800px;
+		padding: 0;
+		right: 0;
+		overflow: hidden;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	#request {
+/*		background-color: purple; */
+		border-bottom: 2px solid #666;
+		color: white;
+		font-size: 14pt;
+		line-height: 50px;
+		padding-left: 5px;
+		position: fixed;
+		opacity: 0.85;
+		top: 0;
+		width: 100%;
+		max-width: 480px;
+		z-index: 15;
+		-webkit-backface-visibility: hidden;
+	}
+
+	#header-icons {
+		color: white;
+		font-family: streamline-30px-filled-in;
+		font-size: 36pt;
+		position: fixed;
+		right: 8px;
+		top: 0;
+		z-index: 20;
+		-webkit-backface-visibility: hidden;
+	}
+
+	#types {
+		background-color: white;
+		line-height: 40px;
+		position: fixed;
+		text-align: center;
+		top: 50px;
+		width: 100%;
+		max-width: 480px;
+		z-index: 10;
+		-webkit-backface-visibility: hidden;
+	}
+
+
+
+	#content {
+		margin-top: 100px;
+		width: 100%;
+		max-width: 480px;
+	}
+
+/* content === Ads */
+
+	.pic {
+		border: 0px solid red;
+		float: left;
+		position: relative;
+	}
+
+	.ad-heart-icon {
+		color: white;
+		font-family: streamline-30px-filled-in;
+		font-size: 24pt;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+
+	.ad-heart-icon a {
+		color: white;
+		text-shadow: 0 0 0.2em #888;
+	}
+
+	.ad-text {
+		bottom: 0;
+		color: purple;
+		font-size: 12pt;
+		margin: 8px;
+		position: absolute;
+	}
+
+/* content === deals */
+
+	#deal {
+		color: purple;
+		font-size: 12pt;
+		margin-left: 10%;
+		top:100px;
+		width: 80%;
+	}
+
+	#hearts {
+		color: purple;
+		font-size: 12pt;
+/*		margin-left: 0%;
+		top:100px;
+		width: 80%;
+*/
+	}
+
+	.pic-hearts {
+		float: left;
+		position: relative;
+
+	}
+
+
+	#footer {
+		bottom: 0;
+		position: fixed;
+		width: 100%;
+		max-width: 480px;
+		-webkit-backface-visibility: hidden;
+	}
+
+	#footer-icons {
+		bottom: 5px;
+		color: white;
+		font-family: streamline-30px-filled-in;
+		font-size: 36pt;
+		position: absolute;
+		text-align: center;
+/*		text-shadow: 0 0 0.2em #888; */
+		text-shadow: -1px -1px 2px #aaa, 1px 1px 2px #333;
+		width: 100%;
+		z-index: 10;
+
+	}
+
+	#footer-icons a {
+		color: white;
+	}
+
+	#back-button, #back-button a{
+		color: purple;
+		font-family: streamline-30px-filled-in;
+		font-size: 36pt;
+	}
+
+	#footer-bar {
+/*		background-color: purple; */
+		bottom: 0;
+		height: 50px;
+		opacity: 0.85;
+		position: absolute;
+		width: 100%;
+	}
+
+	.purple-gradient {
+		background: purple; /* Old browsers */
+		background: -moz-radial-gradient( top right, purple 50%, black ); /* FF3.6+ */
+		background: -webkit-radial-gradient( top right, purple 50%, black ); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient( top right, purple 50%, black ); /* Opera 11.10+ */
+		background: -ms-linear-gradient( top right, purple 50%, black ); /* IE10+ */
+		background: linear-gradient( top right, purple 50%, black ); /* W3C */
+		background-repeat: no-repeat;
+/*		background-attachment: fixed; */
+/*		background-position: 0px 0px; */
+	}
+
+	.mail {
+		float:right;
+		font-family: streamline-30px-filled-in;
+		font-size: 12pt;
+	}
+
+</style>
+</head>
+<body>
+
+	<div id=request class=purple-gradient >Request any brand</div>
+
+	<div id=header-icons >F &#xe0c6; </div>
+
+	<div id=types >
+		<a href=JavaScript:selectType('girls'); >GIRLS</a> | 
+		<a href=JavaScript:selectType('boys'); >BOYS</a> | 
+		<a href=JavaScript:selectType('toddlers'); >TODDLERS</a>
+	</div>
+
+	<div id=content ></div>
+
+	<div id=footer >
+		<div id=footer-bar class=purple-gradient ></div>
+		<div id=footer-icons> 
+			<a href=./videos.html >&#xe32d;</a> 
+			&nbsp;<a href=JavaScript:displayHearts(); >&#xe035;</a>&nbsp; 
+			&#xe116;
+		</div>
+	<div>
+
+<script>
+
+	var columns = 8;
+	var xmlhttp;
+	var type = 'girls';
+	var entries;
+
+	selectType( type );
+
+	function selectType( type ) {
+		loadJSON( 'https://spreadsheets.google.com/feeds/cells/1Hi_To5IJgkWtOYmmCgROT5wZmQlTh7cIkpoYBrgUc9k/1/public/basic?alt=json' );
+		xmlhttp.type = type;
+	}
+
+	function callbackJSON() {
+
+		if ( xmlhttp.readyState == 4 ) {
+
+			var string = xmlhttp.responseText;
+			var data = JSON.parse( string );
+
+			entries = data.feed.entry;
+
+			var count = entries.length / columns;
+
+			request.innerHTML = 'Request any brand';
+			content.innerHTML = '';
+
+			for ( var i = 1; i < count; i++ ) {
+				if ( entries[ i * columns + 3].content.$t === xmlhttp.type ) {
+					var hgt = entries[ i * columns + 6].content.$t;
+					var wid = entries[ i * columns + 7].content.$t;
+					var item = entries[ i * columns + 2].content.$t;
+					content.innerHTML +=
+						'<div class=pic style=height:' + hgt + 'px;width:' + wid + 'px; >' +
+							'<a href=JavaScript:displayDeal(' + i + '); >' +
+								'<img src=' + entries[ i * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
+							'</a>' +
+							'<div class=ad-heart-icon title="' + item + '" >' +
+								'<a id=ad' + i + ' href="JavaScript:youHeart(' + i + ');" name=' + i + '> &#xe035;</a> ' +
+							'</div>' +
+							'<div class=ad-text >' + item.toUpperCase() + '</div>' +
+						'</div>';
+				}
+			}
+		}
+	}
+
+	function displayDeal( count ) {
+
+		var hgt = 1.5 * entries[ count * columns + 6].content.$t;
+		var wid = 1.5 * entries[ count * columns + 7].content.$t;
+
+		request.innerHTML = 'Deals';
+		content.innerHTML = 
+			'<div id=deal >' +
+					'<div>ONLINE</div>' + 
+					'<div>Buy 1 get 1 free <div class=mail >&#xe0c6; </div></div>' +
+					'<div>$5 off underwear <div class=mail >&#xe0c6; </div></div>' +
+					'<div>10% off swimwear <div class=mail >&#xe0c6; </div></div>' +
+					'<div> <br></div>' +
+					'<div>IN-STORE</div>' + 
+					'<div>20% off pajamas<div class=mail >&#xe0c6; </div></div>' +
+					'<div>$10 off any purchase over $50<div class=mail >&#xe0c6; </div></div>' +
+					'<br>' +
+					'<div>' + entries[ count * columns + 2].content.$t.toUpperCase() + '</div>' +
+
+				'<a href=' + entries[ count * columns + 1 ].content.$t + '>' +
+					'<img src=' + entries[ count * columns ].content.$t + ' height= ' + hgt + ' width=' + wid + ' />' +
+				'</a>' +
+				'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' +
+			'</div>';
+
+	}
+
+	function displayHearts() {
+		request.innerHTML = 'Hearts';
+		var txt = '';
+
+		for (var i = 0, len = content.children.length; i < len; i++) {
+
+			var item = content.children[i].children[1].children[0];
+
+			if ( item.style.color === 'purple' ) {
+
+				var id = parseFloat( item.name, 10 );
+				var src = entries[ id * columns ].content.$t;
+				var text = entries[ id * columns + 2].content.$t.toUpperCase();
+				var hgt = entries[ id * columns + 6].content.$t;
+				var wid = entries[ id * columns + 7].content.$t;
+
+				txt += 
+					'<div class=pic-hearts style=height:' + hgt + 'px;width:' + wid + 'px; >' +
+						'<a href=JavaScript:displayDeal(' + id + '); >' +
+							'<img src=' + src + ' height= ' + hgt + ' width=' + wid + ' />' +
+						'</a>' +
+						'<div class=ad-text >' + text + '</div>' +
+					'</div>';
+
+			}
+		}
+
+		if ( txt ) {
+
+			content.innerHTML = 
+				'<div id=hearts >' +
+					txt +
+					'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a><br><br></div>' +
+				'</div>';
+
+		} else {
+
+			content.innerHTML = 
+				'<div id=hearts >' +
+					'<p>No items are hearted.</p>' +
+					'<p>Please go back and heart some items...</p>' +
+					'<div id=back-button ><a href=JavaScript:selectType(xmlhttp.type); >&#xe0e5;</a></div>' +
+				'</div>';
+
+		}
+
+	}
+
+	function youHeart( count ) {
+
+		var adHeart = document.getElementById( 'ad' + count );
+		if ( adHeart.style.color === ''  ) {
+			adHeart.style.color = 'purple'; 
+//			alert( 'You heart ' + entries[ count * columns + 2 ].content.$t + '!');
+		} else {
+			adHeart.style.color = ''; 
+			alert( 'You no longer heart ' + entries[ count * columns + 2 ].content.$t + '...');
+		}
+	}
+
+	function loadJSON( fname ) {
+
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.open( 'GET', fname, true );
+		xmlhttp.onreadystatechange = callbackJSON;
+		xmlhttp.send( null );
+
+	}
+
+</script>
+</body>
+</html>

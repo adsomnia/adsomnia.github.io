@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Owl Carousel - Images Demo</title>
+<title>Adsomnia Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="jQuery Responsive Carousel - Owl Carousel">
 
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.carousel.css" rel="stylesheet">
 <link href="http://owlgraphic.com/owlcarousel/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -12,25 +11,53 @@
 <style>
 	body {
 		font: 14pt "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-		margin: 0; 
+		left: 0;
+		margin: 0 auto;
+		max-width: 480px; 
 		overflow: hidden;
+		right: 0;
 	}
+
+	a { 
+		color: purple;
+		text-decoration: none;
+	}
+
 	#owl-demo .item{
 		margin: 0px;
 	}
+
 	#owl-demo .item img{
 		display: block;
 		width: 100%;
 		height: 200px;
 	}
+
 	#logo {
 		position: absolute;
 		top: 250px;
 		width:100%;
+		max-width: 480px;
 		z-index: -10;
 	}
 
-	.sign-up {
+	#name, #password {
+		background-color: #ddd;
+		border-bottom: 3px solid lightgray;
+
+
+		line-height: 50px;
+		opacity: 0.85;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	#inpName, #inpPassword {
+		color: purple;
+		font-size: 14pt;
+	}
+
+	#submit {
 		background-color: #ddd;
 		border-bottom: 3px solid lightgray;
 		color: purple;
@@ -40,19 +67,10 @@
 		text-align: center;
 	}
 
-	.sign-in {
-		background-color: #ddd;
-		border-bottom: 3px solid lightgray;
-		color: purple;
-		line-height: 50px;
-		opacity: 0.85;
-		margin-top: 10px;
-		text-align: center;
-	}
-
 	.owl-theme .owl-controls .owl-page span {
 		display: none;
 	}
+
 </style>
 </head>
 <body>
@@ -93,11 +111,24 @@
 	<div class="item"><img src="../../ui-images/image-18.jpg" alt="Owl Image"></div>
 	<div class="item"><img src="../../ui-images/image-19.jpg" alt="Owl Image"></div>
 
+
+
 	</div>
 
-	<div class=sign-up >SIGN UP</div>
+	<div id=name ><input type="text" id=inpName placeholder="User name" size=20/></div>
 
-	<div class=sign-in >SIGN IN</div>
+	<div id=password ><input type="text" id=inpPassword placeholder="Password" size=20 onchange=checkPassword(); /></div>
 
+	<div id=submit><a href=JavaScript:checkPassword(); >SIGN IN</a></div>
+
+<script>
+	function checkPassword() {
+		if ( inpPassword.value.substr(0,4).toUpperCase() === 'NUTR' ) {
+			window.location.href = './categories.html';
+		} else {
+			alert('Sorry, that user name and password combination was not found. Please try again...');
+		}
+	}
+</script>
 </body>
 </html>
