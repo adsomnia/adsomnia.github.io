@@ -150,7 +150,9 @@ text-align: right !important;
 /*		background-position: 0px 0px; */
 	}
 
-
+	.header-category {
+		font-family: streamline-30px-filled-in;
+	}
 
 	.category-box, .item {
 		color: purple;
@@ -166,8 +168,6 @@ text-align: right !important;
 	.category-text {
 
 	}
-
-
 
 </style>
 </head>
@@ -201,6 +201,8 @@ text-align: right !important;
 	var entries;
 	var columns = 3;
 	var items = [];
+	var requests = 
+	header.text = 'Request by Price';
 
 	$(document).ready(function() {
 		owl = $("#owlDemo");
@@ -238,7 +240,7 @@ text-align: right !important;
 
 	function selectCategory() {
 
-			header.innerHTML = 'Request any brand';
+			header.innerHTML = header.text;
 
 			for (var i = 0; i < items.length; i++) {
 				owl.data( 'owlCarousel' ).removeItem( 0 );
@@ -247,26 +249,38 @@ text-align: right !important;
 			items = entries[2].content.$t.split(',');
 
 			for (var i = 0; i < items.length; i++) {
-				owl.data( 'owlCarousel' ).addItem( '<div class="item">' + items[i] + '</div>' );
+				owl.data( 'owlCarousel' ).addItem( '<a href=JavaScript:selectRequest(' + i + '); ><div class="item">' + items[i] + '</div>' );
 			}
 
 			content.innerHTML = '';
 			var count = entries.length / columns;
 
 			for (var i = 1; i < count; i++) {
-				content.innerHTML += '<a href=JavaScript:selectItem(' + i + ') ><div class=category-box >' + 
-					'<div class=category-icon  >' + entries[ i * columns + 1].content.$t + '</div>' +
-					'<div class=category-text >' + entries[ i * columns ].content.$t + '</div>' +
-				'</div></a>';
-
+				if ( i === 7 ) {
+					content.innerHTML += '<a href=request-any-brand.html ><div class=category-box >' + 
+						'<div class=category-icon  >' + entries[ i * columns + 1].content.$t + '</div>' +
+						'<div class=category-text >' + entries[ i * columns ].content.$t + '</div>' +
+					'</div></a>';
+				} else {
+					content.innerHTML += '<a href=JavaScript:selectItem(' + i + ') ><div class=category-box >' + 
+						'<div class=category-icon  >' + entries[ i * columns + 1].content.$t + '</div>' +
+						'<div class=category-text >' + entries[ i * columns ].content.$t + '</div>' +
+					'</div></a>';
+				}
 			}
 
 	}
 
+	function selectRequest( index ) {
+		items = entries[2].content.$t.split(',');
+		header.innerHTML = 'Request by ' + items[ index ];
+	}
+
+
 	function selectItem ( index ) {
 console.log( index )
 
-		header.innerHTML = '<a href=JavaScript:selectCategory(); >' + entries[ index * columns ].content.$t + '</a>';
+		header.innerHTML = '<a href=JavaScript:selectCategory(); ><scan class=header-category >' + entries[ index * columns + 1].content.$t + '</scan> ' + entries[ index * columns ].content.$t + '</a>';
 
 		for (var i = 0; i < items.length; i++) {
 			owl.data( 'owlCarousel' ).removeItem( 0 );
@@ -289,8 +303,7 @@ console.log( index )
 		type = types[ Math.floor( 13 * Math.random() ) ];
 
 		currentItem = 1 + owl.data('owlCarousel').currentItem;
-
-		text = owl.data('owlCarousel').$owlItems[ currentItem ].innerText;
+//		text = owl.data('owlCarousel').$owlItems[ currentItem ].innerText;
 
 		content.innerHTML = '';
 		for (var i = 0; i < 10; i++) {
