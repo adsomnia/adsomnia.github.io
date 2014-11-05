@@ -2,6 +2,7 @@ Adsomnia Mobile Read Me
 ===
 [Latest]( http://adsomnia.github.io/mobile/latest/index.html ) 
 
+[Home + Categories / R8]( http://adsomnia.github.io/mobile/r8/index.html )  
 [Home + Request / R7]( http://adsomnia.github.io/mobile/r7/index.html )  
 [Request any brand + Deals / R6]( http://adsomnia.github.io/mobile/r6/request7-any-brand.html )  
 [Request any brand / R5]( http://adsomnia.github.io/mobile/r5-database/request-any-brand.html )  
